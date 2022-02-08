@@ -11,3 +11,5 @@ gem 'redcarpet', '~> 3.5.0'
 gem 'nokogiri', '~> 1.12.1'
 gem 'sass'
 gem 'webrick'
+
+gem "wdm", "~> 0.1.1"
