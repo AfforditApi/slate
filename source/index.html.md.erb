@@ -1,0 +1,2799 @@
+<!-- Generator: Widdershins v4.0.1 -->
+
+<h1 id="affordit-loan-insights-portal">Affordit Loan Insights Portal v1</h1>
+
+> Scroll down for example requests and responses.
+
+API for communicating with Affordit, a financial institution's products and applications.
+
+<h1 id="affordit-loan-insights-portal-application">Application</h1>
+
+## post__Application
+
+> Code samples
+
+`POST /Application`
+
+*Creates a new application.*
+
+> Body parameter
+
+```json
+{
+  "thirdPartyKey": "string",
+  "submitDate": "2019-08-24T14:15:22Z",
+  "requestedLoan": {
+    "requestedLoanAmount": {
+      "value": 0,
+      "type": "Usd"
+    },
+    "reservesAmount": {
+      "value": 0,
+      "type": "Usd"
+    },
+    "numberOfMonthsForReserves": 0,
+    "isBalanceTransfer": true,
+    "balanceTransferAmount": {
+      "value": 0,
+      "type": "Usd"
+    },
+    "loanName": "string",
+    "loanGroup": "NewAutomobile",
+    "downPaymentAmount": {
+      "value": 0,
+      "type": "Usd"
+    },
+    "debtInstrument": {
+      "interestRate": 0,
+      "totalTerm": 0,
+      "dateOpened": "2019-08-24T14:15:22Z",
+      "monthsReviewed": 0,
+      "creditorName": "string",
+      "accountNumber": "string",
+      "paymentsPerYear": 0,
+      "payment": {
+        "value": 0,
+        "type": "Usd"
+      },
+      "paymentIncludesInterest": true,
+      "watercraftInfo": {
+        "craftLengthInFeet": 0
+      },
+      "vehicleInfo": {
+        "vehicleIdentificationNumber": "string",
+        "year": 0,
+        "make": "string",
+        "model": "string",
+        "mileage": 0
+      },
+      "address": {
+        "addressLine1": "string",
+        "addressLine2": "string",
+        "city": "string",
+        "state": "string",
+        "zip": 0,
+        "zip4": 0
+      },
+      "appraisalValue": {
+        "value": 0,
+        "type": "Usd"
+      }
+    },
+    "isCustomTerm": true,
+    "isCustomInterestRate": true
+  },
+  "primaryApplicant": {
+    "firstName": "string",
+    "middleName": "string",
+    "lastName": "string",
+    "suffix": "string",
+    "socialSecurityNumber": "string",
+    "email": "string",
+    "phoneNumber": "string",
+    "dateOfBirth": "2019-08-24T14:15:22Z",
+    "currentAddress": {
+      "addressLine1": "string",
+      "addressLine2": "string",
+      "city": "string",
+      "state": "string",
+      "zip": 0,
+      "zip4": 0
+    },
+    "mailingAddress": {
+      "addressLine1": "string",
+      "addressLine2": "string",
+      "city": "string",
+      "state": "string",
+      "zip": 0,
+      "zip4": 0
+    },
+    "maritalStatus": "Unknown",
+    "creditScores": {
+      "equifaxScore": 300,
+      "experianScore": 300,
+      "transUnionScore": 300
+    },
+    "employmentInfo": {
+      "nameOfEmployer": "string",
+      "employerAddress": {
+        "addressLine1": "string",
+        "addressLine2": "string",
+        "city": "string",
+        "state": "string",
+        "zip": 0,
+        "zip4": 0
+      },
+      "employerPhoneNumber": "string",
+      "yearsAtJob": 0,
+      "jobTitle": "string",
+      "industry": "string"
+    },
+    "financialInfo": {
+      "yearlyGrossIncome": {
+        "wages": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "overtime": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "bonuses": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "commissions": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "dividends": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "netRentalIncome": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "otherIncome": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "describeOtherIncome": "string",
+        "totalIncome": {
+          "value": 0,
+          "type": "Usd"
+        }
+      }
+    },
+    "assets": [
+      {
+        "type": "Checking",
+        "originationDate": "2019-08-24T14:15:22Z",
+        "rateOfReturn": 0,
+        "totalAmount": {
+          "value": 0,
+          "type": "Usd"
+        }
+      }
+    ],
+    "liabilities": [
+      {
+        "type": "Mortgage",
+        "startingBalance": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "currentBalance": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "highCredit": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "pastDueAmount": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "debtInstrument": {
+          "interestRate": 0,
+          "totalTerm": 0,
+          "dateOpened": "2019-08-24T14:15:22Z",
+          "monthsReviewed": 0,
+          "creditorName": "string",
+          "accountNumber": "string",
+          "paymentsPerYear": 0,
+          "payment": {
+            "value": 0,
+            "type": "Usd"
+          },
+          "paymentIncludesInterest": true,
+          "watercraftInfo": {
+            "craftLengthInFeet": 0
+          },
+          "vehicleInfo": {
+            "vehicleIdentificationNumber": "string",
+            "year": 0,
+            "make": "string",
+            "model": "string",
+            "mileage": 0
+          },
+          "address": {
+            "addressLine1": "string",
+            "addressLine2": "string",
+            "city": "string",
+            "state": "string",
+            "zip": 0,
+            "zip4": 0
+          },
+          "appraisalValue": {
+            "value": 0,
+            "type": "Usd"
+          }
+        }
+      }
+    ]
+  },
+  "secondaryApplicant": {
+    "firstName": "string",
+    "middleName": "string",
+    "lastName": "string",
+    "suffix": "string",
+    "socialSecurityNumber": "string",
+    "email": "string",
+    "phoneNumber": "string",
+    "dateOfBirth": "2019-08-24T14:15:22Z",
+    "currentAddress": {
+      "addressLine1": "string",
+      "addressLine2": "string",
+      "city": "string",
+      "state": "string",
+      "zip": 0,
+      "zip4": 0
+    },
+    "mailingAddress": {
+      "addressLine1": "string",
+      "addressLine2": "string",
+      "city": "string",
+      "state": "string",
+      "zip": 0,
+      "zip4": 0
+    },
+    "maritalStatus": "Unknown",
+    "creditScores": {
+      "equifaxScore": 300,
+      "experianScore": 300,
+      "transUnionScore": 300
+    },
+    "employmentInfo": {
+      "nameOfEmployer": "string",
+      "employerAddress": {
+        "addressLine1": "string",
+        "addressLine2": "string",
+        "city": "string",
+        "state": "string",
+        "zip": 0,
+        "zip4": 0
+      },
+      "employerPhoneNumber": "string",
+      "yearsAtJob": 0,
+      "jobTitle": "string",
+      "industry": "string"
+    },
+    "financialInfo": {
+      "yearlyGrossIncome": {
+        "wages": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "overtime": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "bonuses": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "commissions": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "dividends": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "netRentalIncome": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "otherIncome": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "describeOtherIncome": "string",
+        "totalIncome": {
+          "value": 0,
+          "type": "Usd"
+        }
+      }
+    },
+    "assets": [
+      {
+        "type": "Checking",
+        "originationDate": "2019-08-24T14:15:22Z",
+        "rateOfReturn": 0,
+        "totalAmount": {
+          "value": 0,
+          "type": "Usd"
+        }
+      }
+    ],
+    "liabilities": [
+      {
+        "type": "Mortgage",
+        "startingBalance": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "currentBalance": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "highCredit": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "pastDueAmount": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "debtInstrument": {
+          "interestRate": 0,
+          "totalTerm": 0,
+          "dateOpened": "2019-08-24T14:15:22Z",
+          "monthsReviewed": 0,
+          "creditorName": "string",
+          "accountNumber": "string",
+          "paymentsPerYear": 0,
+          "payment": {
+            "value": 0,
+            "type": "Usd"
+          },
+          "paymentIncludesInterest": true,
+          "watercraftInfo": {
+            "craftLengthInFeet": 0
+          },
+          "vehicleInfo": {
+            "vehicleIdentificationNumber": "string",
+            "year": 0,
+            "make": "string",
+            "model": "string",
+            "mileage": 0
+          },
+          "address": {
+            "addressLine1": "string",
+            "addressLine2": "string",
+            "city": "string",
+            "state": "string",
+            "zip": 0,
+            "zip4": 0
+          },
+          "appraisalValue": {
+            "value": 0,
+            "type": "Usd"
+          }
+        }
+      }
+    ]
+  }
+}
+```
+
+<h3 id="post__application-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|body|body|[Application](#schemaapplication)|false|Application to create|
+
+> Example responses
+
+> 200 Response
+
+```json
+"string"
+```
+
+<h3 id="post__application-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Application was created successfully.|string|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Application was improperly formatted.|[ProblemDetails](#schemaproblemdetails)|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+Bearer
+</aside>
+
+## put__Application_{key}
+
+> Code samples
+
+`PUT /Application/{key}`
+
+*Updates the details for an already existing application matching the application's
+third party key.*
+
+> Body parameter
+
+```json
+{
+  "thirdPartyKey": "string",
+  "submitDate": "2019-08-24T14:15:22Z",
+  "requestedLoan": {
+    "requestedLoanAmount": {
+      "value": 0,
+      "type": "Usd"
+    },
+    "reservesAmount": {
+      "value": 0,
+      "type": "Usd"
+    },
+    "numberOfMonthsForReserves": 0,
+    "isBalanceTransfer": true,
+    "balanceTransferAmount": {
+      "value": 0,
+      "type": "Usd"
+    },
+    "loanName": "string",
+    "loanGroup": "NewAutomobile",
+    "downPaymentAmount": {
+      "value": 0,
+      "type": "Usd"
+    },
+    "debtInstrument": {
+      "interestRate": 0,
+      "totalTerm": 0,
+      "dateOpened": "2019-08-24T14:15:22Z",
+      "monthsReviewed": 0,
+      "creditorName": "string",
+      "accountNumber": "string",
+      "paymentsPerYear": 0,
+      "payment": {
+        "value": 0,
+        "type": "Usd"
+      },
+      "paymentIncludesInterest": true,
+      "watercraftInfo": {
+        "craftLengthInFeet": 0
+      },
+      "vehicleInfo": {
+        "vehicleIdentificationNumber": "string",
+        "year": 0,
+        "make": "string",
+        "model": "string",
+        "mileage": 0
+      },
+      "address": {
+        "addressLine1": "string",
+        "addressLine2": "string",
+        "city": "string",
+        "state": "string",
+        "zip": 0,
+        "zip4": 0
+      },
+      "appraisalValue": {
+        "value": 0,
+        "type": "Usd"
+      }
+    },
+    "isCustomTerm": true,
+    "isCustomInterestRate": true
+  },
+  "primaryApplicant": {
+    "firstName": "string",
+    "middleName": "string",
+    "lastName": "string",
+    "suffix": "string",
+    "socialSecurityNumber": "string",
+    "email": "string",
+    "phoneNumber": "string",
+    "dateOfBirth": "2019-08-24T14:15:22Z",
+    "currentAddress": {
+      "addressLine1": "string",
+      "addressLine2": "string",
+      "city": "string",
+      "state": "string",
+      "zip": 0,
+      "zip4": 0
+    },
+    "mailingAddress": {
+      "addressLine1": "string",
+      "addressLine2": "string",
+      "city": "string",
+      "state": "string",
+      "zip": 0,
+      "zip4": 0
+    },
+    "maritalStatus": "Unknown",
+    "creditScores": {
+      "equifaxScore": 300,
+      "experianScore": 300,
+      "transUnionScore": 300
+    },
+    "employmentInfo": {
+      "nameOfEmployer": "string",
+      "employerAddress": {
+        "addressLine1": "string",
+        "addressLine2": "string",
+        "city": "string",
+        "state": "string",
+        "zip": 0,
+        "zip4": 0
+      },
+      "employerPhoneNumber": "string",
+      "yearsAtJob": 0,
+      "jobTitle": "string",
+      "industry": "string"
+    },
+    "financialInfo": {
+      "yearlyGrossIncome": {
+        "wages": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "overtime": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "bonuses": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "commissions": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "dividends": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "netRentalIncome": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "otherIncome": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "describeOtherIncome": "string",
+        "totalIncome": {
+          "value": 0,
+          "type": "Usd"
+        }
+      }
+    },
+    "assets": [
+      {
+        "type": "Checking",
+        "originationDate": "2019-08-24T14:15:22Z",
+        "rateOfReturn": 0,
+        "totalAmount": {
+          "value": 0,
+          "type": "Usd"
+        }
+      }
+    ],
+    "liabilities": [
+      {
+        "type": "Mortgage",
+        "startingBalance": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "currentBalance": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "highCredit": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "pastDueAmount": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "debtInstrument": {
+          "interestRate": 0,
+          "totalTerm": 0,
+          "dateOpened": "2019-08-24T14:15:22Z",
+          "monthsReviewed": 0,
+          "creditorName": "string",
+          "accountNumber": "string",
+          "paymentsPerYear": 0,
+          "payment": {
+            "value": 0,
+            "type": "Usd"
+          },
+          "paymentIncludesInterest": true,
+          "watercraftInfo": {
+            "craftLengthInFeet": 0
+          },
+          "vehicleInfo": {
+            "vehicleIdentificationNumber": "string",
+            "year": 0,
+            "make": "string",
+            "model": "string",
+            "mileage": 0
+          },
+          "address": {
+            "addressLine1": "string",
+            "addressLine2": "string",
+            "city": "string",
+            "state": "string",
+            "zip": 0,
+            "zip4": 0
+          },
+          "appraisalValue": {
+            "value": 0,
+            "type": "Usd"
+          }
+        }
+      }
+    ]
+  },
+  "secondaryApplicant": {
+    "firstName": "string",
+    "middleName": "string",
+    "lastName": "string",
+    "suffix": "string",
+    "socialSecurityNumber": "string",
+    "email": "string",
+    "phoneNumber": "string",
+    "dateOfBirth": "2019-08-24T14:15:22Z",
+    "currentAddress": {
+      "addressLine1": "string",
+      "addressLine2": "string",
+      "city": "string",
+      "state": "string",
+      "zip": 0,
+      "zip4": 0
+    },
+    "mailingAddress": {
+      "addressLine1": "string",
+      "addressLine2": "string",
+      "city": "string",
+      "state": "string",
+      "zip": 0,
+      "zip4": 0
+    },
+    "maritalStatus": "Unknown",
+    "creditScores": {
+      "equifaxScore": 300,
+      "experianScore": 300,
+      "transUnionScore": 300
+    },
+    "employmentInfo": {
+      "nameOfEmployer": "string",
+      "employerAddress": {
+        "addressLine1": "string",
+        "addressLine2": "string",
+        "city": "string",
+        "state": "string",
+        "zip": 0,
+        "zip4": 0
+      },
+      "employerPhoneNumber": "string",
+      "yearsAtJob": 0,
+      "jobTitle": "string",
+      "industry": "string"
+    },
+    "financialInfo": {
+      "yearlyGrossIncome": {
+        "wages": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "overtime": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "bonuses": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "commissions": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "dividends": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "netRentalIncome": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "otherIncome": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "describeOtherIncome": "string",
+        "totalIncome": {
+          "value": 0,
+          "type": "Usd"
+        }
+      }
+    },
+    "assets": [
+      {
+        "type": "Checking",
+        "originationDate": "2019-08-24T14:15:22Z",
+        "rateOfReturn": 0,
+        "totalAmount": {
+          "value": 0,
+          "type": "Usd"
+        }
+      }
+    ],
+    "liabilities": [
+      {
+        "type": "Mortgage",
+        "startingBalance": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "currentBalance": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "highCredit": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "pastDueAmount": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "debtInstrument": {
+          "interestRate": 0,
+          "totalTerm": 0,
+          "dateOpened": "2019-08-24T14:15:22Z",
+          "monthsReviewed": 0,
+          "creditorName": "string",
+          "accountNumber": "string",
+          "paymentsPerYear": 0,
+          "payment": {
+            "value": 0,
+            "type": "Usd"
+          },
+          "paymentIncludesInterest": true,
+          "watercraftInfo": {
+            "craftLengthInFeet": 0
+          },
+          "vehicleInfo": {
+            "vehicleIdentificationNumber": "string",
+            "year": 0,
+            "make": "string",
+            "model": "string",
+            "mileage": 0
+          },
+          "address": {
+            "addressLine1": "string",
+            "addressLine2": "string",
+            "city": "string",
+            "state": "string",
+            "zip": 0,
+            "zip4": 0
+          },
+          "appraisalValue": {
+            "value": 0,
+            "type": "Usd"
+          }
+        }
+      }
+    ]
+  }
+}
+```
+
+<h3 id="put__application_{key}-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|key|path|string|true|The third party key for the application to update.|
+|body|body|[Application](#schemaapplication)|false|none|
+
+> Example responses
+
+> 200 Response
+
+```json
+"string"
+```
+
+<h3 id="put__application_{key}-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Application was updated successfully.|string|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Application was improperly formatted.|[ProblemDetails](#schemaproblemdetails)|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|No application matching key was found.|[ProblemDetails](#schemaproblemdetails)|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+Bearer
+</aside>
+
+<h1 id="affordit-loan-insights-portal-products">Products</h1>
+
+## get__Products_Echo
+
+> Code samples
+
+`GET /Products/Echo`
+
+*Echos the provided string. Used for debugging connection.*
+
+<h3 id="get__products_echo-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|echo|query|string|false|none|
+
+> Example responses
+
+> 200 Response
+
+```json
+"string"
+```
+
+<h3 id="get__products_echo-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Returns the supplied string.|string|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+Bearer
+</aside>
+
+## get__Products
+
+> Code samples
+
+`GET /Products`
+
+*Retrieves all products.*
+
+> Example responses
+
+> 200 Response
+
+```json
+[
+  {
+    "id": 0,
+    "name": "string",
+    "group": "NewAutomobile",
+    "productSheet": "string"
+  }
+]
+```
+
+<h3 id="get__products-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Returns all products|Inline|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|If there are no products|[ProblemDetails](#schemaproblemdetails)|
+
+<h3 id="get__products-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|*anonymous*|[[Product](#schemaproduct)]|false|none|[A product represents an atomic financial product for an institution.]|
+|» id|integer(int64)¦null|false|none|An identifier for the product. This is not required when submitting new products.<br>This should be used when updating existing products.|
+|» name|string|true|none|The name of the product.|
+|» group|[LoanGrouping](#schemaloangrouping)|true|none|none|
+|» productSheet|string|true|none|The product sheet for the product. The string value in the product sheet is expected<br>to adhere to the Affordit Banking Meta Language (BML) specification.|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|group|NewAutomobile|
+|group|UsedAutomobile|
+|group|NewMotorcycle|
+|group|UsedMotorcycle|
+|group|NewPremierMotorcycle|
+|group|UsedPremierMotorcycle|
+|group|NewRecreationalVehicle|
+|group|UsedRecreationalVehicle|
+|group|NewTrailer|
+|group|UsedTrailer|
+|group|NewWatercraft|
+|group|UsedWatercraft|
+|group|NewMortgage|
+|group|RefinancedMortgage|
+|group|HELOC|
+|group|HELOAN|
+|group|Personal|
+|group|Student|
+|group|CreditCard|
+|group|Other|
+|group|AccountOrigination|
+|group|CrossSell|
+|group|Payoff|
+|group|NewATV|
+|group|UsedATV|
+|group|NewSnowmobile|
+|group|UsedSnowmobile|
+|group|NewTruckCamper|
+|group|UsedTruckCamper|
+|group|NewUTV|
+|group|UsedUTV|
+|group|NewJetski|
+|group|UsedJetski|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+Bearer
+</aside>
+
+## post__Products
+
+> Code samples
+
+`POST /Products`
+
+*Creates new product(s).*
+
+> Body parameter
+
+```json
+[
+  {
+    "id": 0,
+    "name": "string",
+    "group": "NewAutomobile",
+    "productSheet": "string"
+  }
+]
+```
+
+> Example responses
+
+> 200 Response
+
+```json
+[
+  {
+    "id": 0,
+    "name": "string",
+    "group": "NewAutomobile",
+    "productSheet": "string"
+  }
+]
+```
+
+<h3 id="post__products-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Returns the newly created product(s)|Inline|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|If the product(s) are incomplete or non existent.|[ProblemDetails](#schemaproblemdetails)|
+
+<h3 id="post__products-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|*anonymous*|[[Product](#schemaproduct)]|false|none|[A product represents an atomic financial product for an institution.]|
+|» id|integer(int64)¦null|false|none|An identifier for the product. This is not required when submitting new products.<br>This should be used when updating existing products.|
+|» name|string|true|none|The name of the product.|
+|» group|[LoanGrouping](#schemaloangrouping)|true|none|none|
+|» productSheet|string|true|none|The product sheet for the product. The string value in the product sheet is expected<br>to adhere to the Affordit Banking Meta Language (BML) specification.|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|group|NewAutomobile|
+|group|UsedAutomobile|
+|group|NewMotorcycle|
+|group|UsedMotorcycle|
+|group|NewPremierMotorcycle|
+|group|UsedPremierMotorcycle|
+|group|NewRecreationalVehicle|
+|group|UsedRecreationalVehicle|
+|group|NewTrailer|
+|group|UsedTrailer|
+|group|NewWatercraft|
+|group|UsedWatercraft|
+|group|NewMortgage|
+|group|RefinancedMortgage|
+|group|HELOC|
+|group|HELOAN|
+|group|Personal|
+|group|Student|
+|group|CreditCard|
+|group|Other|
+|group|AccountOrigination|
+|group|CrossSell|
+|group|Payoff|
+|group|NewATV|
+|group|UsedATV|
+|group|NewSnowmobile|
+|group|UsedSnowmobile|
+|group|NewTruckCamper|
+|group|UsedTruckCamper|
+|group|NewUTV|
+|group|UsedUTV|
+|group|NewJetski|
+|group|UsedJetski|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+Bearer
+</aside>
+
+## put__Products
+
+> Code samples
+
+`PUT /Products`
+
+*Bulk updates products. Updates existing products and creates new ones if applicable.*
+
+> Body parameter
+
+```json
+[
+  {
+    "id": 0,
+    "name": "string",
+    "group": "NewAutomobile",
+    "productSheet": "string"
+  }
+]
+```
+
+> Example responses
+
+> 200 Response
+
+```json
+[
+  {
+    "id": 0,
+    "name": "string",
+    "group": "NewAutomobile",
+    "productSheet": "string"
+  }
+]
+```
+
+<h3 id="put__products-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Returns the updated and created products|Inline|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|If the product(s) are incomplete|[ProblemDetails](#schemaproblemdetails)|
+
+<h3 id="put__products-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|*anonymous*|[[Product](#schemaproduct)]|false|none|[A product represents an atomic financial product for an institution.]|
+|» id|integer(int64)¦null|false|none|An identifier for the product. This is not required when submitting new products.<br>This should be used when updating existing products.|
+|» name|string|true|none|The name of the product.|
+|» group|[LoanGrouping](#schemaloangrouping)|true|none|none|
+|» productSheet|string|true|none|The product sheet for the product. The string value in the product sheet is expected<br>to adhere to the Affordit Banking Meta Language (BML) specification.|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|group|NewAutomobile|
+|group|UsedAutomobile|
+|group|NewMotorcycle|
+|group|UsedMotorcycle|
+|group|NewPremierMotorcycle|
+|group|UsedPremierMotorcycle|
+|group|NewRecreationalVehicle|
+|group|UsedRecreationalVehicle|
+|group|NewTrailer|
+|group|UsedTrailer|
+|group|NewWatercraft|
+|group|UsedWatercraft|
+|group|NewMortgage|
+|group|RefinancedMortgage|
+|group|HELOC|
+|group|HELOAN|
+|group|Personal|
+|group|Student|
+|group|CreditCard|
+|group|Other|
+|group|AccountOrigination|
+|group|CrossSell|
+|group|Payoff|
+|group|NewATV|
+|group|UsedATV|
+|group|NewSnowmobile|
+|group|UsedSnowmobile|
+|group|NewTruckCamper|
+|group|UsedTruckCamper|
+|group|NewUTV|
+|group|UsedUTV|
+|group|NewJetski|
+|group|UsedJetski|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+Bearer
+</aside>
+
+## delete__Products
+
+> Code samples
+
+`DELETE /Products`
+
+*Removes all products.*
+
+<h3 id="delete__products-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+Bearer
+</aside>
+
+## get__Products_{id}
+
+> Code samples
+
+`GET /Products/{id}`
+
+*Retrieves the product details for product matching provided Id.*
+
+<h3 id="get__products_{id}-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|id|path|integer(int64)|true|The product Id|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "id": 0,
+  "name": "string",
+  "group": "NewAutomobile",
+  "productSheet": "string"
+}
+```
+
+<h3 id="get__products_{id}-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Returns the matching product|[Product](#schemaproduct)|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|If there is no product matching Id|[ProblemDetails](#schemaproblemdetails)|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+Bearer
+</aside>
+
+## put__Products_{id}
+
+> Code samples
+
+`PUT /Products/{id}`
+
+*Updates the details for product matching provided Id.*
+
+> Body parameter
+
+```json
+{
+  "id": 0,
+  "name": "string",
+  "group": "NewAutomobile",
+  "productSheet": "string"
+}
+```
+
+<h3 id="put__products_{id}-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|id|path|integer(int64)|true|The product Id|
+|body|body|[Product](#schemaproduct)|false|The product to update|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "id": 0,
+  "name": "string",
+  "group": "NewAutomobile",
+  "productSheet": "string"
+}
+```
+
+<h3 id="put__products_{id}-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Returns the updated product|[Product](#schemaproduct)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|If the product is incomplete|[ProblemDetails](#schemaproblemdetails)|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|If the product does not yet exist|[ProblemDetails](#schemaproblemdetails)|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+Bearer
+</aside>
+
+## delete__Products_{id}
+
+> Code samples
+
+`DELETE /Products/{id}`
+
+*Removes product matching provided Id.*
+
+<h3 id="delete__products_{id}-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|id|path|integer(int64)|true|The product Id|
+
+> Example responses
+
+> 404 Response
+
+```json
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "property1": null,
+  "property2": null
+}
+```
+
+<h3 id="delete__products_{id}-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|None|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|No product found matching Id|[ProblemDetails](#schemaproblemdetails)|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+Bearer
+</aside>
+
+## get__Products_Search
+
+> Code samples
+
+`GET /Products/Search`
+
+*Searches for products using query parameters.*
+
+<h3 id="get__products_search-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|id|query|integer(int64)|false|The product Id|
+|name|query|string|false|The name of the product|
+|group|query|[LoanGrouping](#schemaloangrouping)|false|Loan grouping of the product|
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|group|NewAutomobile|
+|group|UsedAutomobile|
+|group|NewMotorcycle|
+|group|UsedMotorcycle|
+|group|NewPremierMotorcycle|
+|group|UsedPremierMotorcycle|
+|group|NewRecreationalVehicle|
+|group|UsedRecreationalVehicle|
+|group|NewTrailer|
+|group|UsedTrailer|
+|group|NewWatercraft|
+|group|UsedWatercraft|
+|group|NewMortgage|
+|group|RefinancedMortgage|
+|group|HELOC|
+|group|HELOAN|
+|group|Personal|
+|group|Student|
+|group|CreditCard|
+|group|Other|
+|group|AccountOrigination|
+|group|CrossSell|
+|group|Payoff|
+|group|NewATV|
+|group|UsedATV|
+|group|NewSnowmobile|
+|group|UsedSnowmobile|
+|group|NewTruckCamper|
+|group|UsedTruckCamper|
+|group|NewUTV|
+|group|UsedUTV|
+|group|NewJetski|
+|group|UsedJetski|
+
+> Example responses
+
+> 200 Response
+
+```json
+[
+  {
+    "id": 0,
+    "name": "string",
+    "group": "NewAutomobile",
+    "productSheet": "string"
+  }
+]
+```
+
+<h3 id="get__products_search-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Returns any matching products|Inline|
+
+<h3 id="get__products_search-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|*anonymous*|[[Product](#schemaproduct)]|false|none|[A product represents an atomic financial product for an institution.]|
+|» id|integer(int64)¦null|false|none|An identifier for the product. This is not required when submitting new products.<br>This should be used when updating existing products.|
+|» name|string|true|none|The name of the product.|
+|» group|[LoanGrouping](#schemaloangrouping)|true|none|none|
+|» productSheet|string|true|none|The product sheet for the product. The string value in the product sheet is expected<br>to adhere to the Affordit Banking Meta Language (BML) specification.|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|group|NewAutomobile|
+|group|UsedAutomobile|
+|group|NewMotorcycle|
+|group|UsedMotorcycle|
+|group|NewPremierMotorcycle|
+|group|UsedPremierMotorcycle|
+|group|NewRecreationalVehicle|
+|group|UsedRecreationalVehicle|
+|group|NewTrailer|
+|group|UsedTrailer|
+|group|NewWatercraft|
+|group|UsedWatercraft|
+|group|NewMortgage|
+|group|RefinancedMortgage|
+|group|HELOC|
+|group|HELOAN|
+|group|Personal|
+|group|Student|
+|group|CreditCard|
+|group|Other|
+|group|AccountOrigination|
+|group|CrossSell|
+|group|Payoff|
+|group|NewATV|
+|group|UsedATV|
+|group|NewSnowmobile|
+|group|UsedSnowmobile|
+|group|NewTruckCamper|
+|group|UsedTruckCamper|
+|group|NewUTV|
+|group|UsedUTV|
+|group|NewJetski|
+|group|UsedJetski|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+Bearer
+</aside>
+
+# Schemas
+
+<h2 id="tocS_Address">Address</h2>
+<!-- backwards compatibility -->
+<a id="schemaaddress"></a>
+<a id="schema_Address"></a>
+<a id="tocSaddress"></a>
+<a id="tocsaddress"></a>
+
+```json
+{
+  "addressLine1": "string",
+  "addressLine2": "string",
+  "city": "string",
+  "state": "string",
+  "zip": 0,
+  "zip4": 0
+}
+
+```
+
+A mailing address.
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|addressLine1|string¦null|false|none|The street address.|
+|addressLine2|string¦null|false|none|Apartment number, suite number, etc.|
+|city|string¦null|false|none|The city of the address.|
+|state|string¦null|false|none|The state of the address. This can be provided as the state abbreviation or the<br>full name of the state.|
+|zip|integer(int32)¦null|false|none|The zip code of the address.|
+|zip4|integer(int32)¦null|false|none|Extra zip code identifier.|
+
+<h2 id="tocS_Applicant">Applicant</h2>
+<!-- backwards compatibility -->
+<a id="schemaapplicant"></a>
+<a id="schema_Applicant"></a>
+<a id="tocSapplicant"></a>
+<a id="tocsapplicant"></a>
+
+```json
+{
+  "firstName": "string",
+  "middleName": "string",
+  "lastName": "string",
+  "suffix": "string",
+  "socialSecurityNumber": "string",
+  "email": "string",
+  "phoneNumber": "string",
+  "dateOfBirth": "2019-08-24T14:15:22Z",
+  "currentAddress": {
+    "addressLine1": "string",
+    "addressLine2": "string",
+    "city": "string",
+    "state": "string",
+    "zip": 0,
+    "zip4": 0
+  },
+  "mailingAddress": {
+    "addressLine1": "string",
+    "addressLine2": "string",
+    "city": "string",
+    "state": "string",
+    "zip": 0,
+    "zip4": 0
+  },
+  "maritalStatus": "Unknown",
+  "creditScores": {
+    "equifaxScore": 300,
+    "experianScore": 300,
+    "transUnionScore": 300
+  },
+  "employmentInfo": {
+    "nameOfEmployer": "string",
+    "employerAddress": {
+      "addressLine1": "string",
+      "addressLine2": "string",
+      "city": "string",
+      "state": "string",
+      "zip": 0,
+      "zip4": 0
+    },
+    "employerPhoneNumber": "string",
+    "yearsAtJob": 0,
+    "jobTitle": "string",
+    "industry": "string"
+  },
+  "financialInfo": {
+    "yearlyGrossIncome": {
+      "wages": {
+        "value": 0,
+        "type": "Usd"
+      },
+      "overtime": {
+        "value": 0,
+        "type": "Usd"
+      },
+      "bonuses": {
+        "value": 0,
+        "type": "Usd"
+      },
+      "commissions": {
+        "value": 0,
+        "type": "Usd"
+      },
+      "dividends": {
+        "value": 0,
+        "type": "Usd"
+      },
+      "netRentalIncome": {
+        "value": 0,
+        "type": "Usd"
+      },
+      "otherIncome": {
+        "value": 0,
+        "type": "Usd"
+      },
+      "describeOtherIncome": "string",
+      "totalIncome": {
+        "value": 0,
+        "type": "Usd"
+      }
+    }
+  },
+  "assets": [
+    {
+      "type": "Checking",
+      "originationDate": "2019-08-24T14:15:22Z",
+      "rateOfReturn": 0,
+      "totalAmount": {
+        "value": 0,
+        "type": "Usd"
+      }
+    }
+  ],
+  "liabilities": [
+    {
+      "type": "Mortgage",
+      "startingBalance": {
+        "value": 0,
+        "type": "Usd"
+      },
+      "currentBalance": {
+        "value": 0,
+        "type": "Usd"
+      },
+      "highCredit": {
+        "value": 0,
+        "type": "Usd"
+      },
+      "pastDueAmount": {
+        "value": 0,
+        "type": "Usd"
+      },
+      "debtInstrument": {
+        "interestRate": 0,
+        "totalTerm": 0,
+        "dateOpened": "2019-08-24T14:15:22Z",
+        "monthsReviewed": 0,
+        "creditorName": "string",
+        "accountNumber": "string",
+        "paymentsPerYear": 0,
+        "payment": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "paymentIncludesInterest": true,
+        "watercraftInfo": {
+          "craftLengthInFeet": 0
+        },
+        "vehicleInfo": {
+          "vehicleIdentificationNumber": "string",
+          "year": 0,
+          "make": "string",
+          "model": "string",
+          "mileage": 0
+        },
+        "address": {
+          "addressLine1": "string",
+          "addressLine2": "string",
+          "city": "string",
+          "state": "string",
+          "zip": 0,
+          "zip4": 0
+        },
+        "appraisalValue": {
+          "value": 0,
+          "type": "Usd"
+        }
+      }
+    }
+  ]
+}
+
+```
+
+Represents an applicant for an application.
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|firstName|string|true|none|The first name of the applicant.|
+|middleName|string¦null|false|none|The middle name of the applicant.|
+|lastName|string|true|none|The last name of the applicant.|
+|suffix|string¦null|false|none|An optional part of the applicant's name providing additional designations.|
+|socialSecurityNumber|string¦null|false|none|The social security number of the applicant.|
+|email|string¦null|false|none|The email address of the applicant.|
+|phoneNumber|string¦null|false|none|The phone number of the applicant.|
+|dateOfBirth|string(date-time)¦null|false|none|The date of the birth of the applicant. This date is expected to be in UTC format.|
+|currentAddress|[Address](#schemaaddress)|false|none|A mailing address.|
+|mailingAddress|[Address](#schemaaddress)|false|none|A mailing address.|
+|maritalStatus|[MaritalStatus](#schemamaritalstatus)|false|none|none|
+|creditScores|[CreditScores](#schemacreditscores)|true|none|Scores assigned by one of three large credit bureaus.|
+|employmentInfo|[EmploymentInfo](#schemaemploymentinfo)|false|none|Information which pertains to employment.|
+|financialInfo|[FinancialInfo](#schemafinancialinfo)|false|none|Represents financial information.|
+|assets|[[Asset](#schemaasset)]¦null|false|none|Asset information for the applicant.|
+|liabilities|[[Liability](#schemaliability)]¦null|false|none|Liability information for the applicant.|
+
+<h2 id="tocS_Application">Application</h2>
+<!-- backwards compatibility -->
+<a id="schemaapplication"></a>
+<a id="schema_Application"></a>
+<a id="tocSapplication"></a>
+<a id="tocsapplication"></a>
+
+```json
+{
+  "thirdPartyKey": "string",
+  "submitDate": "2019-08-24T14:15:22Z",
+  "requestedLoan": {
+    "requestedLoanAmount": {
+      "value": 0,
+      "type": "Usd"
+    },
+    "reservesAmount": {
+      "value": 0,
+      "type": "Usd"
+    },
+    "numberOfMonthsForReserves": 0,
+    "isBalanceTransfer": true,
+    "balanceTransferAmount": {
+      "value": 0,
+      "type": "Usd"
+    },
+    "loanName": "string",
+    "loanGroup": "NewAutomobile",
+    "downPaymentAmount": {
+      "value": 0,
+      "type": "Usd"
+    },
+    "debtInstrument": {
+      "interestRate": 0,
+      "totalTerm": 0,
+      "dateOpened": "2019-08-24T14:15:22Z",
+      "monthsReviewed": 0,
+      "creditorName": "string",
+      "accountNumber": "string",
+      "paymentsPerYear": 0,
+      "payment": {
+        "value": 0,
+        "type": "Usd"
+      },
+      "paymentIncludesInterest": true,
+      "watercraftInfo": {
+        "craftLengthInFeet": 0
+      },
+      "vehicleInfo": {
+        "vehicleIdentificationNumber": "string",
+        "year": 0,
+        "make": "string",
+        "model": "string",
+        "mileage": 0
+      },
+      "address": {
+        "addressLine1": "string",
+        "addressLine2": "string",
+        "city": "string",
+        "state": "string",
+        "zip": 0,
+        "zip4": 0
+      },
+      "appraisalValue": {
+        "value": 0,
+        "type": "Usd"
+      }
+    },
+    "isCustomTerm": true,
+    "isCustomInterestRate": true
+  },
+  "primaryApplicant": {
+    "firstName": "string",
+    "middleName": "string",
+    "lastName": "string",
+    "suffix": "string",
+    "socialSecurityNumber": "string",
+    "email": "string",
+    "phoneNumber": "string",
+    "dateOfBirth": "2019-08-24T14:15:22Z",
+    "currentAddress": {
+      "addressLine1": "string",
+      "addressLine2": "string",
+      "city": "string",
+      "state": "string",
+      "zip": 0,
+      "zip4": 0
+    },
+    "mailingAddress": {
+      "addressLine1": "string",
+      "addressLine2": "string",
+      "city": "string",
+      "state": "string",
+      "zip": 0,
+      "zip4": 0
+    },
+    "maritalStatus": "Unknown",
+    "creditScores": {
+      "equifaxScore": 300,
+      "experianScore": 300,
+      "transUnionScore": 300
+    },
+    "employmentInfo": {
+      "nameOfEmployer": "string",
+      "employerAddress": {
+        "addressLine1": "string",
+        "addressLine2": "string",
+        "city": "string",
+        "state": "string",
+        "zip": 0,
+        "zip4": 0
+      },
+      "employerPhoneNumber": "string",
+      "yearsAtJob": 0,
+      "jobTitle": "string",
+      "industry": "string"
+    },
+    "financialInfo": {
+      "yearlyGrossIncome": {
+        "wages": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "overtime": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "bonuses": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "commissions": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "dividends": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "netRentalIncome": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "otherIncome": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "describeOtherIncome": "string",
+        "totalIncome": {
+          "value": 0,
+          "type": "Usd"
+        }
+      }
+    },
+    "assets": [
+      {
+        "type": "Checking",
+        "originationDate": "2019-08-24T14:15:22Z",
+        "rateOfReturn": 0,
+        "totalAmount": {
+          "value": 0,
+          "type": "Usd"
+        }
+      }
+    ],
+    "liabilities": [
+      {
+        "type": "Mortgage",
+        "startingBalance": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "currentBalance": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "highCredit": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "pastDueAmount": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "debtInstrument": {
+          "interestRate": 0,
+          "totalTerm": 0,
+          "dateOpened": "2019-08-24T14:15:22Z",
+          "monthsReviewed": 0,
+          "creditorName": "string",
+          "accountNumber": "string",
+          "paymentsPerYear": 0,
+          "payment": {
+            "value": 0,
+            "type": "Usd"
+          },
+          "paymentIncludesInterest": true,
+          "watercraftInfo": {
+            "craftLengthInFeet": 0
+          },
+          "vehicleInfo": {
+            "vehicleIdentificationNumber": "string",
+            "year": 0,
+            "make": "string",
+            "model": "string",
+            "mileage": 0
+          },
+          "address": {
+            "addressLine1": "string",
+            "addressLine2": "string",
+            "city": "string",
+            "state": "string",
+            "zip": 0,
+            "zip4": 0
+          },
+          "appraisalValue": {
+            "value": 0,
+            "type": "Usd"
+          }
+        }
+      }
+    ]
+  },
+  "secondaryApplicant": {
+    "firstName": "string",
+    "middleName": "string",
+    "lastName": "string",
+    "suffix": "string",
+    "socialSecurityNumber": "string",
+    "email": "string",
+    "phoneNumber": "string",
+    "dateOfBirth": "2019-08-24T14:15:22Z",
+    "currentAddress": {
+      "addressLine1": "string",
+      "addressLine2": "string",
+      "city": "string",
+      "state": "string",
+      "zip": 0,
+      "zip4": 0
+    },
+    "mailingAddress": {
+      "addressLine1": "string",
+      "addressLine2": "string",
+      "city": "string",
+      "state": "string",
+      "zip": 0,
+      "zip4": 0
+    },
+    "maritalStatus": "Unknown",
+    "creditScores": {
+      "equifaxScore": 300,
+      "experianScore": 300,
+      "transUnionScore": 300
+    },
+    "employmentInfo": {
+      "nameOfEmployer": "string",
+      "employerAddress": {
+        "addressLine1": "string",
+        "addressLine2": "string",
+        "city": "string",
+        "state": "string",
+        "zip": 0,
+        "zip4": 0
+      },
+      "employerPhoneNumber": "string",
+      "yearsAtJob": 0,
+      "jobTitle": "string",
+      "industry": "string"
+    },
+    "financialInfo": {
+      "yearlyGrossIncome": {
+        "wages": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "overtime": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "bonuses": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "commissions": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "dividends": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "netRentalIncome": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "otherIncome": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "describeOtherIncome": "string",
+        "totalIncome": {
+          "value": 0,
+          "type": "Usd"
+        }
+      }
+    },
+    "assets": [
+      {
+        "type": "Checking",
+        "originationDate": "2019-08-24T14:15:22Z",
+        "rateOfReturn": 0,
+        "totalAmount": {
+          "value": 0,
+          "type": "Usd"
+        }
+      }
+    ],
+    "liabilities": [
+      {
+        "type": "Mortgage",
+        "startingBalance": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "currentBalance": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "highCredit": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "pastDueAmount": {
+          "value": 0,
+          "type": "Usd"
+        },
+        "debtInstrument": {
+          "interestRate": 0,
+          "totalTerm": 0,
+          "dateOpened": "2019-08-24T14:15:22Z",
+          "monthsReviewed": 0,
+          "creditorName": "string",
+          "accountNumber": "string",
+          "paymentsPerYear": 0,
+          "payment": {
+            "value": 0,
+            "type": "Usd"
+          },
+          "paymentIncludesInterest": true,
+          "watercraftInfo": {
+            "craftLengthInFeet": 0
+          },
+          "vehicleInfo": {
+            "vehicleIdentificationNumber": "string",
+            "year": 0,
+            "make": "string",
+            "model": "string",
+            "mileage": 0
+          },
+          "address": {
+            "addressLine1": "string",
+            "addressLine2": "string",
+            "city": "string",
+            "state": "string",
+            "zip": 0,
+            "zip4": 0
+          },
+          "appraisalValue": {
+            "value": 0,
+            "type": "Usd"
+          }
+        }
+      }
+    ]
+  }
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|thirdPartyKey|string¦null|false|none|A key to track the Application in the Affordit system. This can be the internal application<br>number used by your Financial Institution. If a key is not provided one will be assigned<br>to this Application.|
+|submitDate|string(date-time)¦null|false|none|The date which the Application has been submitted in your internal system. This date<br>is expected to be in UTC format.|
+|requestedLoan|[RequestedLoan](#schemarequestedloan)|false|none|The loan an individual has applied for.|
+|primaryApplicant|[Applicant](#schemaapplicant)|true|none|Represents an applicant for an application.|
+|secondaryApplicant|[Applicant](#schemaapplicant)|false|none|Represents an applicant for an application.|
+
+<h2 id="tocS_Asset">Asset</h2>
+<!-- backwards compatibility -->
+<a id="schemaasset"></a>
+<a id="schema_Asset"></a>
+<a id="tocSasset"></a>
+<a id="tocsasset"></a>
+
+```json
+{
+  "type": "Checking",
+  "originationDate": "2019-08-24T14:15:22Z",
+  "rateOfReturn": 0,
+  "totalAmount": {
+    "value": 0,
+    "type": "Usd"
+  }
+}
+
+```
+
+A financial asset.
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|type|[AssetType](#schemaassettype)|true|none|none|
+|originationDate|string(date-time)¦null|false|none|The date which the asset was originated. This date is expected to be in UTC format.|
+|rateOfReturn|number(double)¦null|false|none|The estimated rate of return for the asset.|
+|totalAmount|[Currency](#schemacurrency)|true|none|A value type with currency information.|
+
+<h2 id="tocS_AssetType">AssetType</h2>
+<!-- backwards compatibility -->
+<a id="schemaassettype"></a>
+<a id="schema_AssetType"></a>
+<a id="tocSassettype"></a>
+<a id="tocsassettype"></a>
+
+```json
+"Checking"
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|*anonymous*|string|false|none|none|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|*anonymous*|Checking|
+|*anonymous*|Savings|
+|*anonymous*|HomeEquity|
+|*anonymous*|CertificateOfDeposit|
+|*anonymous*|MoneyMarket|
+|*anonymous*|CashDeposit|
+|*anonymous*|Bond|
+|*anonymous*|IndividualRetirementAccount|
+|*anonymous*|OtherRetirementFund|
+|*anonymous*|BridgeLoanNotDeposited|
+|*anonymous*|CashOnHand|
+|*anonymous*|Gift|
+|*anonymous*|MutualFunds|
+|*anonymous*|SecuredBorrowerFunds|
+|*anonymous*|NetSaleProceeds|
+|*anonymous*|Other|
+|*anonymous*|DownPayment|
+
+<h2 id="tocS_CreditScores">CreditScores</h2>
+<!-- backwards compatibility -->
+<a id="schemacreditscores"></a>
+<a id="schema_CreditScores"></a>
+<a id="tocScreditscores"></a>
+<a id="tocscreditscores"></a>
+
+```json
+{
+  "equifaxScore": 300,
+  "experianScore": 300,
+  "transUnionScore": 300
+}
+
+```
+
+Scores assigned by one of three large credit bureaus.
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|equifaxScore|integer(int32)¦null|false|none|The credit score designated by Equifax.|
+|experianScore|integer(int32)¦null|false|none|The credit score designated by Experian.|
+|transUnionScore|integer(int32)¦null|false|none|The credit score designated by TransUnion.|
+
+<h2 id="tocS_Currency">Currency</h2>
+<!-- backwards compatibility -->
+<a id="schemacurrency"></a>
+<a id="schema_Currency"></a>
+<a id="tocScurrency"></a>
+<a id="tocscurrency"></a>
+
+```json
+{
+  "value": 0,
+  "type": "Usd"
+}
+
+```
+
+A value type with currency information.
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|value|number(double)¦null|false|none|The value of the currency|
+|type|[CurrencyType](#schemacurrencytype)|false|none|none|
+
+<h2 id="tocS_CurrencyType">CurrencyType</h2>
+<!-- backwards compatibility -->
+<a id="schemacurrencytype"></a>
+<a id="schema_CurrencyType"></a>
+<a id="tocScurrencytype"></a>
+<a id="tocscurrencytype"></a>
+
+```json
+"Usd"
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|*anonymous*|string|false|none|none|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|*anonymous*|Usd|
+
+<h2 id="tocS_DebtInstrument">DebtInstrument</h2>
+<!-- backwards compatibility -->
+<a id="schemadebtinstrument"></a>
+<a id="schema_DebtInstrument"></a>
+<a id="tocSdebtinstrument"></a>
+<a id="tocsdebtinstrument"></a>
+
+```json
+{
+  "interestRate": 0,
+  "totalTerm": 0,
+  "dateOpened": "2019-08-24T14:15:22Z",
+  "monthsReviewed": 0,
+  "creditorName": "string",
+  "accountNumber": "string",
+  "paymentsPerYear": 0,
+  "payment": {
+    "value": 0,
+    "type": "Usd"
+  },
+  "paymentIncludesInterest": true,
+  "watercraftInfo": {
+    "craftLengthInFeet": 0
+  },
+  "vehicleInfo": {
+    "vehicleIdentificationNumber": "string",
+    "year": 0,
+    "make": "string",
+    "model": "string",
+    "mileage": 0
+  },
+  "address": {
+    "addressLine1": "string",
+    "addressLine2": "string",
+    "city": "string",
+    "state": "string",
+    "zip": 0,
+    "zip4": 0
+  },
+  "appraisalValue": {
+    "value": 0,
+    "type": "Usd"
+  }
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|interestRate|number(double)¦null|false|none|The interest rate for the debt instrument.|
+|totalTerm|integer(int32)¦null|false|none|The the total term length in months for the debt instrument. If the debt instrument is unstructured<br>debt, then this won't be used even if it is provided.|
+|dateOpened|string(date-time)¦null|false|none|The date which this debt instrument was opened. This date is expected to be in UTC format.|
+|monthsReviewed|integer(int32)¦null|false|none|The number of months which the debt instrument has been reported.|
+|creditorName|string¦null|false|none|The name of the creditor.|
+|accountNumber|string¦null|false|none|The account number for the debt instrument designated by the creditor.|
+|paymentsPerYear|integer(int32)¦null|false|none|Conditionally required. The number of payments in a year. This value if not provided<br>will be assumed to be 12, meaning one payment made each month. For student loans which<br>amortize daily the value should be 365|
+|payment|[Currency](#schemacurrency)|true|none|A value type with currency information.|
+|paymentIncludesInterest|boolean|true|none|Indicates whether or not that the supplied payment includes interest.|
+|watercraftInfo|[WatercraftInfo](#schemawatercraftinfo)|false|none|Information which pertains to a watercraft.|
+|vehicleInfo|[VehicleInfo](#schemavehicleinfo)|false|none|Information which pertains to a vehicle.|
+|address|[Address](#schemaaddress)|false|none|A mailing address.|
+|appraisalValue|[Currency](#schemacurrency)|false|none|A value type with currency information.|
+
+<h2 id="tocS_EmploymentInfo">EmploymentInfo</h2>
+<!-- backwards compatibility -->
+<a id="schemaemploymentinfo"></a>
+<a id="schema_EmploymentInfo"></a>
+<a id="tocSemploymentinfo"></a>
+<a id="tocsemploymentinfo"></a>
+
+```json
+{
+  "nameOfEmployer": "string",
+  "employerAddress": {
+    "addressLine1": "string",
+    "addressLine2": "string",
+    "city": "string",
+    "state": "string",
+    "zip": 0,
+    "zip4": 0
+  },
+  "employerPhoneNumber": "string",
+  "yearsAtJob": 0,
+  "jobTitle": "string",
+  "industry": "string"
+}
+
+```
+
+Information which pertains to employment.
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|nameOfEmployer|string¦null|false|none|The name of the employer.|
+|employerAddress|[Address](#schemaaddress)|false|none|A mailing address.|
+|employerPhoneNumber|string¦null|false|none|The phone number of the employer.|
+|yearsAtJob|integer(int32)¦null|false|none|The number of years at the job.|
+|jobTitle|string¦null|false|none|The title of the job.|
+|industry|string¦null|false|none|The general industry the job is in.|
+
+<h2 id="tocS_FinancialInfo">FinancialInfo</h2>
+<!-- backwards compatibility -->
+<a id="schemafinancialinfo"></a>
+<a id="schema_FinancialInfo"></a>
+<a id="tocSfinancialinfo"></a>
+<a id="tocsfinancialinfo"></a>
+
+```json
+{
+  "yearlyGrossIncome": {
+    "wages": {
+      "value": 0,
+      "type": "Usd"
+    },
+    "overtime": {
+      "value": 0,
+      "type": "Usd"
+    },
+    "bonuses": {
+      "value": 0,
+      "type": "Usd"
+    },
+    "commissions": {
+      "value": 0,
+      "type": "Usd"
+    },
+    "dividends": {
+      "value": 0,
+      "type": "Usd"
+    },
+    "netRentalIncome": {
+      "value": 0,
+      "type": "Usd"
+    },
+    "otherIncome": {
+      "value": 0,
+      "type": "Usd"
+    },
+    "describeOtherIncome": "string",
+    "totalIncome": {
+      "value": 0,
+      "type": "Usd"
+    }
+  }
+}
+
+```
+
+Represents financial information.
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|yearlyGrossIncome|[GrossIncome](#schemagrossincome)|false|none|The total amount of income without taxes and other deduction.|
+
+<h2 id="tocS_GrossIncome">GrossIncome</h2>
+<!-- backwards compatibility -->
+<a id="schemagrossincome"></a>
+<a id="schema_GrossIncome"></a>
+<a id="tocSgrossincome"></a>
+<a id="tocsgrossincome"></a>
+
+```json
+{
+  "wages": {
+    "value": 0,
+    "type": "Usd"
+  },
+  "overtime": {
+    "value": 0,
+    "type": "Usd"
+  },
+  "bonuses": {
+    "value": 0,
+    "type": "Usd"
+  },
+  "commissions": {
+    "value": 0,
+    "type": "Usd"
+  },
+  "dividends": {
+    "value": 0,
+    "type": "Usd"
+  },
+  "netRentalIncome": {
+    "value": 0,
+    "type": "Usd"
+  },
+  "otherIncome": {
+    "value": 0,
+    "type": "Usd"
+  },
+  "describeOtherIncome": "string",
+  "totalIncome": {
+    "value": 0,
+    "type": "Usd"
+  }
+}
+
+```
+
+The total amount of income without taxes and other deduction.
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|wages|[Currency](#schemacurrency)|false|none|A value type with currency information.|
+|overtime|[Currency](#schemacurrency)|false|none|A value type with currency information.|
+|bonuses|[Currency](#schemacurrency)|false|none|A value type with currency information.|
+|commissions|[Currency](#schemacurrency)|false|none|A value type with currency information.|
+|dividends|[Currency](#schemacurrency)|false|none|A value type with currency information.|
+|netRentalIncome|[Currency](#schemacurrency)|false|none|A value type with currency information.|
+|otherIncome|[Currency](#schemacurrency)|false|none|A value type with currency information.|
+|describeOtherIncome|string¦null|false|none|The description of the other income sources.|
+|totalIncome|[Currency](#schemacurrency)|false|none|A value type with currency information.|
+
+<h2 id="tocS_Liability">Liability</h2>
+<!-- backwards compatibility -->
+<a id="schemaliability"></a>
+<a id="schema_Liability"></a>
+<a id="tocSliability"></a>
+<a id="tocsliability"></a>
+
+```json
+{
+  "type": "Mortgage",
+  "startingBalance": {
+    "value": 0,
+    "type": "Usd"
+  },
+  "currentBalance": {
+    "value": 0,
+    "type": "Usd"
+  },
+  "highCredit": {
+    "value": 0,
+    "type": "Usd"
+  },
+  "pastDueAmount": {
+    "value": 0,
+    "type": "Usd"
+  },
+  "debtInstrument": {
+    "interestRate": 0,
+    "totalTerm": 0,
+    "dateOpened": "2019-08-24T14:15:22Z",
+    "monthsReviewed": 0,
+    "creditorName": "string",
+    "accountNumber": "string",
+    "paymentsPerYear": 0,
+    "payment": {
+      "value": 0,
+      "type": "Usd"
+    },
+    "paymentIncludesInterest": true,
+    "watercraftInfo": {
+      "craftLengthInFeet": 0
+    },
+    "vehicleInfo": {
+      "vehicleIdentificationNumber": "string",
+      "year": 0,
+      "make": "string",
+      "model": "string",
+      "mileage": 0
+    },
+    "address": {
+      "addressLine1": "string",
+      "addressLine2": "string",
+      "city": "string",
+      "state": "string",
+      "zip": 0,
+      "zip4": 0
+    },
+    "appraisalValue": {
+      "value": 0,
+      "type": "Usd"
+    }
+  }
+}
+
+```
+
+A liability is a trade-line which an applicant is responsible for.
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|type|[LiabilityType](#schemaliabilitytype)|true|none|none|
+|startingBalance|[Currency](#schemacurrency)|false|none|A value type with currency information.|
+|currentBalance|[Currency](#schemacurrency)|false|none|A value type with currency information.|
+|highCredit|[Currency](#schemacurrency)|false|none|A value type with currency information.|
+|pastDueAmount|[Currency](#schemacurrency)|false|none|A value type with currency information.|
+|debtInstrument|[DebtInstrument](#schemadebtinstrument)|true|none|none|
+
+<h2 id="tocS_LiabilityType">LiabilityType</h2>
+<!-- backwards compatibility -->
+<a id="schemaliabilitytype"></a>
+<a id="schema_LiabilityType"></a>
+<a id="tocSliabilitytype"></a>
+<a id="tocsliabilitytype"></a>
+
+```json
+"Mortgage"
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|*anonymous*|string|false|none|none|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|*anonymous*|Mortgage|
+|*anonymous*|Automobile|
+|*anonymous*|Motorcycle|
+|*anonymous*|RecreationalVehicle|
+|*anonymous*|Trailer|
+|*anonymous*|Watercraft|
+|*anonymous*|CreditCard|
+|*anonymous*|PersonalLoan|
+|*anonymous*|Student|
+|*anonymous*|HELOC|
+|*anonymous*|HELOAN|
+|*anonymous*|Other|
+
+<h2 id="tocS_LoanGrouping">LoanGrouping</h2>
+<!-- backwards compatibility -->
+<a id="schemaloangrouping"></a>
+<a id="schema_LoanGrouping"></a>
+<a id="tocSloangrouping"></a>
+<a id="tocsloangrouping"></a>
+
+```json
+"NewAutomobile"
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|*anonymous*|string|false|none|none|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|*anonymous*|NewAutomobile|
+|*anonymous*|UsedAutomobile|
+|*anonymous*|NewMotorcycle|
+|*anonymous*|UsedMotorcycle|
+|*anonymous*|NewPremierMotorcycle|
+|*anonymous*|UsedPremierMotorcycle|
+|*anonymous*|NewRecreationalVehicle|
+|*anonymous*|UsedRecreationalVehicle|
+|*anonymous*|NewTrailer|
+|*anonymous*|UsedTrailer|
+|*anonymous*|NewWatercraft|
+|*anonymous*|UsedWatercraft|
+|*anonymous*|NewMortgage|
+|*anonymous*|RefinancedMortgage|
+|*anonymous*|HELOC|
+|*anonymous*|HELOAN|
+|*anonymous*|Personal|
+|*anonymous*|Student|
+|*anonymous*|CreditCard|
+|*anonymous*|Other|
+|*anonymous*|AccountOrigination|
+|*anonymous*|CrossSell|
+|*anonymous*|Payoff|
+|*anonymous*|NewATV|
+|*anonymous*|UsedATV|
+|*anonymous*|NewSnowmobile|
+|*anonymous*|UsedSnowmobile|
+|*anonymous*|NewTruckCamper|
+|*anonymous*|UsedTruckCamper|
+|*anonymous*|NewUTV|
+|*anonymous*|UsedUTV|
+|*anonymous*|NewJetski|
+|*anonymous*|UsedJetski|
+
+<h2 id="tocS_MaritalStatus">MaritalStatus</h2>
+<!-- backwards compatibility -->
+<a id="schemamaritalstatus"></a>
+<a id="schema_MaritalStatus"></a>
+<a id="tocSmaritalstatus"></a>
+<a id="tocsmaritalstatus"></a>
+
+```json
+"Unknown"
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|*anonymous*|string|false|none|none|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|*anonymous*|Unknown|
+|*anonymous*|Single|
+|*anonymous*|NowMarried|
+|*anonymous*|Divorced|
+
+<h2 id="tocS_ProblemDetails">ProblemDetails</h2>
+<!-- backwards compatibility -->
+<a id="schemaproblemdetails"></a>
+<a id="schema_ProblemDetails"></a>
+<a id="tocSproblemdetails"></a>
+<a id="tocsproblemdetails"></a>
+
+```json
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "property1": null,
+  "property2": null
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|**additionalProperties**|any|false|none|none|
+|type|string¦null|false|none|none|
+|title|string¦null|false|none|none|
+|status|integer(int32)¦null|false|none|none|
+|detail|string¦null|false|none|none|
+|instance|string¦null|false|none|none|
+
+<h2 id="tocS_Product">Product</h2>
+<!-- backwards compatibility -->
+<a id="schemaproduct"></a>
+<a id="schema_Product"></a>
+<a id="tocSproduct"></a>
+<a id="tocsproduct"></a>
+
+```json
+{
+  "id": 0,
+  "name": "string",
+  "group": "NewAutomobile",
+  "productSheet": "string"
+}
+
+```
+
+A product represents an atomic financial product for an institution.
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|id|integer(int64)¦null|false|none|An identifier for the product. This is not required when submitting new products.<br>This should be used when updating existing products.|
+|name|string|true|none|The name of the product.|
+|group|[LoanGrouping](#schemaloangrouping)|true|none|none|
+|productSheet|string|true|none|The product sheet for the product. The string value in the product sheet is expected<br>to adhere to the Affordit Banking Meta Language (BML) specification.|
+
+<h2 id="tocS_RequestedLoan">RequestedLoan</h2>
+<!-- backwards compatibility -->
+<a id="schemarequestedloan"></a>
+<a id="schema_RequestedLoan"></a>
+<a id="tocSrequestedloan"></a>
+<a id="tocsrequestedloan"></a>
+
+```json
+{
+  "requestedLoanAmount": {
+    "value": 0,
+    "type": "Usd"
+  },
+  "reservesAmount": {
+    "value": 0,
+    "type": "Usd"
+  },
+  "numberOfMonthsForReserves": 0,
+  "isBalanceTransfer": true,
+  "balanceTransferAmount": {
+    "value": 0,
+    "type": "Usd"
+  },
+  "loanName": "string",
+  "loanGroup": "NewAutomobile",
+  "downPaymentAmount": {
+    "value": 0,
+    "type": "Usd"
+  },
+  "debtInstrument": {
+    "interestRate": 0,
+    "totalTerm": 0,
+    "dateOpened": "2019-08-24T14:15:22Z",
+    "monthsReviewed": 0,
+    "creditorName": "string",
+    "accountNumber": "string",
+    "paymentsPerYear": 0,
+    "payment": {
+      "value": 0,
+      "type": "Usd"
+    },
+    "paymentIncludesInterest": true,
+    "watercraftInfo": {
+      "craftLengthInFeet": 0
+    },
+    "vehicleInfo": {
+      "vehicleIdentificationNumber": "string",
+      "year": 0,
+      "make": "string",
+      "model": "string",
+      "mileage": 0
+    },
+    "address": {
+      "addressLine1": "string",
+      "addressLine2": "string",
+      "city": "string",
+      "state": "string",
+      "zip": 0,
+      "zip4": 0
+    },
+    "appraisalValue": {
+      "value": 0,
+      "type": "Usd"
+    }
+  },
+  "isCustomTerm": true,
+  "isCustomInterestRate": true
+}
+
+```
+
+The loan an individual has applied for.
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|requestedLoanAmount|[Currency](#schemacurrency)|false|none|A value type with currency information.|
+|reservesAmount|[Currency](#schemacurrency)|false|none|A value type with currency information.|
+|numberOfMonthsForReserves|integer(int32)¦null|false|none|Number of months the reserves amount will cover.|
+|isBalanceTransfer|boolean¦null|false|none|Indicates that the loan represents a balance transfer.|
+|balanceTransferAmount|[Currency](#schemacurrency)|false|none|A value type with currency information.|
+|loanName|string|true|none|The name of the loan. The pair of loan name and loan group should match a configured<br>product.|
+|loanGroup|[LoanGrouping](#schemaloangrouping)|true|none|none|
+|downPaymentAmount|[Currency](#schemacurrency)|false|none|A value type with currency information.|
+|debtInstrument|[DebtInstrument](#schemadebtinstrument)|false|none|none|
+|isCustomTerm|boolean¦null|false|none|Indicates that the supplied term is a result of a custom entry and not tied explicitly<br>to a product.|
+|isCustomInterestRate|boolean¦null|false|none|Indicates that the supplied interest rate is a result of a custom entry and not tied<br>explicitly to a product.|
+
+<h2 id="tocS_VehicleInfo">VehicleInfo</h2>
+<!-- backwards compatibility -->
+<a id="schemavehicleinfo"></a>
+<a id="schema_VehicleInfo"></a>
+<a id="tocSvehicleinfo"></a>
+<a id="tocsvehicleinfo"></a>
+
+```json
+{
+  "vehicleIdentificationNumber": "string",
+  "year": 0,
+  "make": "string",
+  "model": "string",
+  "mileage": 0
+}
+
+```
+
+Information which pertains to a vehicle.
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|vehicleIdentificationNumber|string¦null|false|none|Identifying code for the vehicle.|
+|year|integer(int32)¦null|false|none|The year of the vehicle.|
+|make|string¦null|false|none|Make of the vehicle.|
+|model|string¦null|false|none|Model type of the vehicle.|
+|mileage|integer(int32)¦null|false|none|The current mileage of the vehicle measured in Miles.|
+
+<h2 id="tocS_WatercraftInfo">WatercraftInfo</h2>
+<!-- backwards compatibility -->
+<a id="schemawatercraftinfo"></a>
+<a id="schema_WatercraftInfo"></a>
+<a id="tocSwatercraftinfo"></a>
+<a id="tocswatercraftinfo"></a>
+
+```json
+{
+  "craftLengthInFeet": 0
+}
+
+```
+
+Information which pertains to a watercraft.
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|craftLengthInFeet|integer(int32)¦null|false|none|Represents the length in feet of the watercraft.|
+
+<%= partial "./includes/spec.md" %>
