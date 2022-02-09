@@ -7,21 +7,21 @@ Banking Meta Language is a fully functional language, so everything is a functio
 
 This simple line of code introduces a few important topics.
 
-1. `fun` is the function keyword, meaning everything after this defines a function
-2. `hello_world` is the function name
-3. `=>` is the lambda operator and expects some kind of expression to follow
-4. `"Hello World"` is a string literal while is the return value also says the `hello_world` function returns a string type
+1. `fun` is the function keyword, meaning everything after this defines a function.
+2. `hello_world` is the function name.
+3. `=>` is the lambda operator and expects some kind of expression to follow.
+4. `"Hello World"` is a string literal and also the function's return value, which means that the hello_world function returns the string type.
 
-Every function is parameterless, so invoking a function is as easy as calling it directly `hello_world` would print `"Hello World"` in an interpreter. Also you may have observed that there was no function ending symbol, BML does not need to make use of line endings or semi colons. So new lines are not significant and any formatting is provided for readibility sakes.
+Every function is parameterless, so invoking a function is as easy as calling it directly. `hello_world` would print `"Hello World"` in an interpreter. Also you may have observed that there was no function ending symbol, BML does not need to make use of line endings or semi colons. So new lines are not significant and any formatting is provided for readability sake.
 
 ## 2 Function Names
-In the hello world example, our function was named `hello_world`. BML supports custom named functions which can be recalled later when composing other functions. BML also has a host of reserved function keywords, which is used to communicate product information! I won't list all the reserved keywords, they can be found the specification document, however if you wanted to communicate an interest rate table from a product sheet you would simply define a function for interest rate like so
+In the hello world example, our function was named `hello_world`. BML supports custom named functions which can be recalled later when composing other functions. BML also has a host of reserved function keywords, which are used to communicate product information. I won't list all the reserved keywords, they can be found the specification document, however if you wanted to communicate an interest rate table from a product sheet you would simply define a function for interest rate like so
 
     `fun InterestRate => ...`
 
 ## 3 Tables
 ### 3.1 Introduction
-Tables are the fundamental building block of BML. Tables are a language construct which are meant to merge switch expressions with traditionally found in a banking product sheet. The following code introduces a large chunk functionality.
+Tables are the fundamental building block of BML. Tables are a language construct which are meant to merge switch expressions with tables traditionally found in a banking product sheet. The following code introduces a large chunk functionality.
 
 ```
 fun LoanAmount =>
@@ -55,11 +55,11 @@ fun InterestRate =>
   | <= 599, true => 7.0
 ```
 
-So, we've introduced a couple of things, multiple table parameters `table CreditScore, LoanTerm`, binary comparison operators `>= 720`, and a boolean literal `true`. 
+So, we've introduced a couple of things, multiple table parameters `table CreditScore, LoanTerm`, unary comparison operators `>= 720`, and a boolean literal `true`. 
 
 This table is more representative of a traditional 2-dimensional table with columns and rows, but BML supports tables in 10 dimensions, meaning you can supply 10 parameters to a table if you so choose. Each table branch must have the same number of expressions as table parameters. Additionally, the parameters are applied in order, so the branch `| >= 720, > 72 ` gets converted to `CreditScore >= 720 and LoanTerm > 72`. I just introduced another important keyword `and`. `and` is the boolean logical AND. Each branch expression must be true for the branch to evalute to true.
 
-Binary comparison operators are just syntactic sugar for a comparison expression and are only valid in the context of a table branch.
+Unary comparison operators in a table branch are just syntactic sugar for a comparison expression and are only valid in the context of a table branch.
 
 Finally, `true`, as seen in the last branch, is a literal value so that branch becomes, `CreditScore <= 599 and true`, which means anybody, regardless of loan term with a credit score less than or equal to 599 qualifies for a 7% interest rate.
 
@@ -97,7 +97,7 @@ BML supports the equality operators `==` and `!=`. Any two compatible types can 
 `"hello" == "goodbye" // false`
 
 ## 7 Type Coercion
-Banking Meta Language supports coercion in the direction of an `integer` to a `floating point` and will do so when determining compatible types, e.g., either doing comparison or determining the return type of conditional expression.
+Banking Meta Language supports coercion in the direction of an `integer` to a `floating point` and will do so when determining compatible types, e.g., either doing a comparison or determining the return type of a conditional expression.
 
 ## 8 Underwriting Guidelines/Rules
 BML supports underwriting guidelines in the form of rules. There are two rule types `Deny` and `Adjust`.
@@ -110,11 +110,11 @@ rule deny "Reject this loan if credit score is negative!" =>
   CreditScore < 0
 ```
 
-1. `rule` is the rule keyword, meaning everything after this defines a rule
-2. `deny` is the rule type keyword, this rule is a deny rule
-3. `"Reject this loan if credit score is negative!"` is the rule name, the rule name is a string literal and acts as a user facing message when the rule evaluates to true
-4. `=>` lambda operator, expects an expression to follow
-5. `CreditScore < 0` is an expression which when evaluated returns a boolean
+1. `rule` is the rule keyword, meaning everything after this defines a rule.
+2. `deny` is the rule type keyword, this rule is a deny rule.
+3. `"Reject this loan if credit score is negative!"` is the rule name, the rule name is a string literal and acts as a user facing message when the rule evaluates to true.
+4. `=>` lambda operator, expects an expression to follow.
+5. `CreditScore < 0` is an expression which when evaluated returns a boolean.
 
 So, if `CreditScore` is equal to -10 then the loan is denied! If the `CreditScore` is 100 then for the purposes of this rule the loan can continue processing. This does not indicate that the loan is approved, however.
 
@@ -130,10 +130,10 @@ rule adjust InterestRate "Loans exceeding 100 months should be raised half a poi
     : 0
 ```
 
-1. `rule` again the rule keyword
-2. `adjust` is the rule type keyword, this rule is an adjustment rule
-3. `InterestRate` a keyword which specifies which loan property is being adjusted
-4. `=>` lambda operator, expects an expression to follow
+1. `rule` again the rule keyword.
+2. `adjust` is the rule type keyword, this rule is an adjustment rule.
+3. `InterestRate` a keyword which specifies which loan property is being adjusted.
+4. `=>` lambda operator, expects an expression to follow.
 5. `LoanTerm > 100 ? .5 : 0` finally the rule expression.
 
 So we've introduced ternary operators. A ternary operator is of the form `condition ? consequent : alternative`. If the condition, in this case `LoanTerm > 100` evaluates to true, then the `consequent` is chosen, otherwise the `alternative` is taken. So, if the loan currently being processed has a loan term of 120, then the condition `120 > 100` evaluates to true and the adjustment evaluates to positive `.5`. This adjustment is then added to the interest rate, So, if the current interest rate for the processing loan is `4.3` then it becomes `4.8`.

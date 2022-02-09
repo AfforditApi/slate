@@ -30,7 +30,7 @@ The lexical and syntactic grammars make use of regular expressions to concisely 
 | A* | Matches zero or more occurrences of A |
 | A? | Matches A or nothing, treating A as optional |
 | A B | Matches A and then B |
-| A \| B | Matches A or B, but not both |
+| A &#124; B | Matches A or B, but not both |
 | [ char - char ] | Range of ASCII characters |
 | [ ^ char - char ] | Any characters except those in the range |
 
@@ -85,7 +85,7 @@ Banking Meta Language supports simple comments of the form '//'. The lexer when 
 | Star | * |
 | Minus | - |
 | Plus | + |
-| Pipe | \| |
+| Pipe | &#124; |
 | Comma | , |
 | LeftBrace | { |
 | RightBrace | } |
@@ -244,7 +244,7 @@ There are a couple of language constructs which have types associated to them.
 The language grammar and parser do a pretty good job defining the language rules and enforcing the language rules respectively. However there are several rules which require a semantic analysis pass. A note on scoping, Banking Meta Language only has a global scope.
 
 ### 6.1 Coercion
-Banking Meta Language supports coercion in the direction of an `integer` to a `floating point` and will do so when determing compatible types, e.g. either doing comparison or determing the return type of conditional expression.
+Banking Meta Language supports coercion in the direction of an `integer` to a `floating point` and will do so when determining compatible types, e.g., either doing a comparison or determining the return type of a conditional expression.
 
 ### 6.2 Functions Semantic Rules
 * Function identifiers must be unique.
