@@ -1,4 +1,4 @@
-# Banking Meta Language Specification
+# BML Specification
 ## 1 Introduction
 The Banking Meta Language is a functional, non-Turing complete, strongly typed language used to represent a financial institution’s product catalog which includes dynamic rate adjustments and explicit loan denial.
 
