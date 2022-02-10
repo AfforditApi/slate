@@ -1,7 +1,7 @@
 # BML Quickstart
 
 ## 1 Hello World
-Banking Meta Language is a fully functional language, so everything is a function and every function a composition of expressions! BML is also strongly typed, but implicitly typed, so while every function has a type associated to it that association is being determined by the compiler. Without further ado hello, hello world,
+Banking Meta Language (BML) is a fully functional language, so everything is a function and every function a composition of expressions! BML is strongly typed, but implicitly typed, so while every function has a type associated to it that association is being determined by the compiler. Without further ado hello, hello world,
     
     `fun hello_world => "Hello World"`
 
@@ -12,16 +12,16 @@ This simple line of code introduces a few important topics.
 3. `=>` is the lambda operator and expects some kind of expression to follow.
 4. `"Hello World"` is a string literal and also the function's return value, which means that the hello_world function returns the string type.
 
-Every function is parameterless, so invoking a function is as easy as calling it directly. `hello_world` would print `"Hello World"` in an interpreter. Also you may have observed that there was no function ending symbol, BML does not need to make use of line endings or semi colons. So new lines are not significant and any formatting is provided for readability sake.
+Every function is parameterless, so invoking a function is as easy as calling it directly. `hello_world` would print `"Hello World"` in an interpreter. Also you may have observed that there was no function ending symbol, BML does not need to make use of line endings or semi colons. So new lines are not significant and any formatting is provided for readability.
 
 ## 2 Function Names
-In the hello world example, our function was named `hello_world`. BML supports custom named functions which can be recalled later when composing other functions. BML also has a host of reserved function keywords, which are used to communicate product information. I won't list all the reserved keywords, they can be found the specification document, however if you wanted to communicate an interest rate table from a product sheet you would simply define a function for interest rate like so
+In the hello world example, our function was named `hello_world`. BML supports custom named functions which can be recalled later when composing other functions. BML also has a host of reserved function keywords, which are used to communicate product information. Reserved keywords can be found in the specification document. If you wanted to communicate an interest rate table from a product sheet you would simply define a function for interest rate like so
 
     `fun InterestRate => ...`
 
 ## 3 Tables
 ### 3.1 Introduction
-Tables are the fundamental building block of BML. Tables are a language construct which are meant to merge switch expressions with tables traditionally found in a banking product sheet. The following code introduces a large chunk functionality.
+Tables are the fundamental building block of BML. Tables are a language construct which are meant to merge switch statements found in most programming languages with tables traditionally found in a banking product sheet. The following code introduces a large chunk of functionality.
 
 ```
 fun LoanAmount =>
@@ -36,7 +36,7 @@ fun LoanAmount =>
 2. `table` a table ahead! 
 3. `CreditScore` following the table keyword are the table's parameters. So, this table uses the credit score of the applicant to find a loan amount.
 4. `| in (720, 850] => 75000` is a branch of the table, the branch starts with the pipe operator `|`.
-5. `in (720, 850]` is an interval operation. This is converted to `CreditScore in (720, 850]`. This is some syntactic sugar provided by the language.
+5. `in (720, 850]` is an interval operation. Read more about intervals [here](#4-type-system). This is converted to `CreditScore in (720, 850]`. This is some syntactic sugar provided by the language.
 6. `=> 75000` then we have the expression which is returned if the branch arm evaluates to true.
 7. The same follows for the other two branches.
 8. `_ => 0` this is the exhaustive branch. If no branch is found to be true, then you can provide a default value. The exhaustive branch is not required, however.
@@ -57,11 +57,11 @@ fun InterestRate =>
 
 So, we've introduced a couple of things, multiple table parameters `table CreditScore, LoanTerm`, unary comparison operators `>= 720`, and a boolean literal `true`. 
 
-This table is more representative of a traditional 2-dimensional table with columns and rows, but BML supports tables in 10 dimensions, meaning you can supply 10 parameters to a table if you so choose. Each table branch must have the same number of expressions as table parameters. Additionally, the parameters are applied in order, so the branch `| >= 720, > 72 ` gets converted to `CreditScore >= 720 and LoanTerm > 72`. I just introduced another important keyword `and`. `and` is the boolean logical AND. Each branch expression must be true for the branch to evalute to true.
+This table is more representative of a traditional 2-dimensional table with columns and rows, but BML supports tables in 10 dimensions, meaning you can supply 10 parameters to a table if you so choose. Each table branch must have the same number of expressions as table parameters. Additionally, the parameters are applied in order, so the branch `| >= 720, > 72 ` gets converted to `CreditScore >= 720 and LoanTerm > 72`. I just introduced another important keyword `and`. `and` is the boolean logical AND. Each branch expression must be true for the branch to evaluate to true.
 
 Unary comparison operators in a table branch are just syntactic sugar for a comparison expression and are only valid in the context of a table branch.
 
-Finally, `true`, as seen in the last branch, is a literal value so that branch becomes, `CreditScore <= 599 and true`, which means anybody, regardless of loan term with a credit score less than or equal to 599 qualifies for a 7% interest rate.
+Finally, `true`, as seen in the last branch, is a literal value. The final branch becomes `CreditScore <= 599 and true`. This means that an applicant with a credit score less than or equal to 599 and any loan term qualifies for a 7.0% interest rate.
 
 ## 4 Type System
 BML has only a few primitive types, `integer`, `floating point`, `string`, and `bool`, and has the compound type `interval` which is an aggregation of base types.
@@ -74,10 +74,10 @@ BML has only a few primitive types, `integer`, `floating point`, `string`, and `
 
 `bool` is a boolean value either `true` or `false` and is the result of any comparison or equality operation.
 
-`interval` is anything which takes the form of an opening character `[` or `(` some `value`, a `comma` another `value` and then a closing character `)` or `]`. Some examples, `[100, 300]`, `(-123, 4.3]`. The first value must be smaller than the second value. The bracket `[`, `]` means that the that number is included in the range. The parenthesis `(`, `)` means that the number is excluded in the range.
+`interval` is anything which takes the form of an opening character `[` or `(` some `value`, a `comma` another `value` and then a closing character `)` or `]`. Some examples, `[100, 300]`, `(-123, 4.3]`. The first value must be smaller than the second value. The bracket `[`, `]` means that the number is included in the range. The parenthesis `(`, `)` means that the number is excluded in the range.
 
 ## 5 Comparison Operators
-BML supports the comparison operators `>`, `>=`, `<`, `>=`, `in`, and `out`. Hopefully the first four are already familiar to you. `in` and `out` are exclusive to checking whether or not a number is `in` and interval or `out` of an interval. For example, 
+BML supports the comparison operators `>`, `>=`, `<`, `<=`, `in`, and `out`. Hopefully the first four are already familiar to you. `in` and `out` are exclusive to checking whether or not a number is `in` an interval or `out` of an interval. As an example, 
 
 `1 in [0, 100] // true`
 
@@ -85,12 +85,12 @@ BML supports the comparison operators `>`, `>=`, `<`, `>=`, `in`, and `out`. Hop
 
 `4 out [1, 2] // true`
 
-the `in` and `out` operators can also be used to compare two intervals. For example,
+the `in` and `out` operators can also be used to compare two intervals. As an example,
 
 `[100, 120] in (1, 300) // true` 
 
 ## 6 Equality Operators
-BML supports the equality operators `==` and `!=`. Any two compatible types can be compared using equality operators. The resulting type is always a `bool`. For example,
+BML supports the equality operators `==` and `!=`. Any two compatible types can be compared using equality operators. The resulting type is always a `bool`. As an example,
 
 `1 == 1 // true`
 `4.1 != 4 // true`
@@ -121,7 +121,7 @@ So, if `CreditScore` is equal to -10 then the loan is denied! If the `CreditScor
 Deny rules always expect a return type of boolean. This indicates whether or not the applicant should be denied for this loan type. When the deny rule evaluates to true, the loan is denied, otherwise the loan can continue processing.
 
 ### 8.2 Adjust Rules
-Adjust rules are almost identical to the deny rule but introduce another item. They're used to perform adjustments to a loan's properties.
+Adjust rules are syntactically similar to the deny rule but introduce another item. They're used to perform adjustments to a loan's properties.
 
 ```
 rule adjust InterestRate "Loans exceeding 100 months should be raised half a point." =>
@@ -130,7 +130,7 @@ rule adjust InterestRate "Loans exceeding 100 months should be raised half a poi
     : 0
 ```
 
-1. `rule` again the rule keyword.
+1. `rule` is the rule keyword, meaning everything after this defines a rule.
 2. `adjust` is the rule type keyword, this rule is an adjustment rule.
 3. `InterestRate` a keyword which specifies which loan property is being adjusted.
 4. `=>` lambda operator, expects an expression to follow.
@@ -141,4 +141,4 @@ So we've introduced ternary operators. A ternary operator is of the form `condit
 If you want to decrease the interest rate for someone who has an excellent credit score and it's more convenient than putting it in a table, the consequent would be a negative value like `-0.1`.
 
 ## 9 Additional Information
-For more in detail descriptions of the various language constructs, the supporting document `Banking Meta Language Specification` can be viewed. For any other questions you can reach out to Affordit directly.
+For more detailed descriptions of the various language constructs, the supporting document `Banking Meta Language Specification` can be viewed. For any other questions you can reach out to Affordit directly.
