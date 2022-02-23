@@ -64,7 +64,7 @@ Unary comparison operators in a table branch are just syntactic sugar for a comp
 Finally, `true`, as seen in the last branch, is a literal value. The final branch becomes `CreditScore <= 599 and true`. This means that an applicant with a credit score less than or equal to 599 and any loan term qualifies for a 7.0% interest rate.
 
 ## 4 Type System
-BML has only a few primitive types, `integer`, `floating point`, `string`, and `bool`, and has the compound type `interval` which is an aggregation of base types.
+BML has only a few primitive types, `integer`, `floating point`, `string`, and `bool`, and has the compound types `interval` and `progression` which are aggregations of base types.
 
 `integer` is any whole number between -2,147,483,648 to 2,147,483,647. e.g., `12`
 
@@ -75,6 +75,16 @@ BML has only a few primitive types, `integer`, `floating point`, `string`, and `
 `bool` is a boolean value either `true` or `false` and is the result of any comparison or equality operation.
 
 `interval` is anything which takes the form of an opening character `[` or `(` some `value`, a `comma` another `value` and then a closing character `)` or `]`. Some examples, `[100, 300]`, `(-123, 4.3]`. The first value must be smaller than the second value. The bracket `[`, `]` means that the number is included in the range. The parenthesis `(`, `)` means that the number is excluded in the range.
+
+`progression` is anything which takes the form `%` `integer` `interval`. Some examples, `%12 [12, 84]`, `%2 [4, 400)`. The integer must be larger than zero, and the interval must only contain `integer` types. The interval also must start with an inclusive bound. A progression allows for an expansion of the values within it. The `integer` following the `%` is the common difference and beginning with the interval start is summed by the common difference until the end of the interval is reached.
+* `%12 [12, 84]` Starting with 12 and then incrementing by 12 until the end of the interval is reached
+  * `12`
+  * `12 + 12 = 24`
+  * `24 + 12 = 36`
+  * ...
+  * `72 + 12 = 84` 84 is inclusive so it is included
+  * `84 + 12 = 96` which is out of the interval bounds and expansion stops
+  * The expanded progression contains the values `12, 24, 36, 48, 60, 72, 84`
 
 ## 5 Comparison Operators
 BML supports the comparison operators `>`, `>=`, `<`, `<=`, `in`, and `out`. Hopefully the first four are already familiar to you. `in` and `out` are exclusive to checking whether or not a number is `in` an interval or `out` of an interval. As an example, 
@@ -97,7 +107,10 @@ BML supports the equality operators `==` and `!=`. Any two compatible types can 
 `"hello" == "goodbye" // false`
 
 ## 7 Type Coercion
-Banking Meta Language supports coercion in the direction of an `integer` to a `floating point` and will do so when determining compatible types, e.g., either doing a comparison or determining the return type of a conditional expression.
+Banking Meta Language supports coercion in the direction of an `integer` to a `floating point` and will do so when determining compatible types, e.g., either doing a comparison or determining the return type of a conditional expression. 
+BML also supports the coercion in the direction of `integer` to `progression` and `interval` to `progression`. 
+* An `integer` when coerced to a progression represents a single value. E.g. `4` becomes `%1 [4, 5)`. 
+* An `interval` can only be coerced when the start of the `interval` is inclusive, `[`, and both expressions in the interval are `integers`. An `interval` when coerced is given the default common difference of `1`. E.g. `[4, 20)` becomes `%1 [4, 20)`.
 
 ## 8 Underwriting Guidelines/Rules
 BML supports underwriting guidelines in the form of rules. There are two rule types `Deny` and `Adjust`.
@@ -121,7 +134,7 @@ So, if `CreditScore` is equal to -10 then the loan is denied! If the `CreditScor
 Deny rules always expect a return type of boolean. This indicates whether or not the applicant should be denied for this loan type. When the deny rule evaluates to true, the loan is denied, otherwise the loan can continue processing.
 
 ### 8.2 Adjust Rules
-Adjust rules are syntactically similar to the deny rule but introduce another item. They're used to perform adjustments to a loan's properties.
+Adjust rules are syntactically similar the deny rule but introduce another item. They're used to perform adjustments to a loan's properties.
 
 ```
 rule adjust InterestRate "Loans exceeding 100 months should be raised half a point." =>
@@ -140,5 +153,54 @@ So we've introduced ternary operators. A ternary operator is of the form `condit
 
 If you want to decrease the interest rate for someone who has an excellent credit score and it's more convenient than putting it in a table, the consequent would be a negative value like `-0.1`.
 
-## 9 Additional Information
+## 9 Full Example
+
+```
+fun MaxLoanToValuePercent =>
+  table CreditScore
+  | in [659, 669] => 70
+  | in [670, 739] => 70
+  | in [740, 850] => 90
+
+fun MaxDebtToIncomePercent =>
+  table CreditScore
+  | in [659, 669] => 50
+  | in [670, 739] => 55
+  | in [740, 850] => 60
+
+fun MaxPaymentToIncomePercent =>
+  table CreditScore
+  | in [659, 669] => 200
+  | in [670, 739] => 210
+  | in [740, 850] => 220
+
+fun MaxLoanAmount =>
+  table CreditScore
+  | > 800 => 350000
+  |  in [659, 800] => 300000
+
+fun AllowableLoanTerms =>
+  table LoanAmount, CreditScore
+  | > 5000, in [659, 850] => %12 [0, 60]
+
+fun InterestRate =>
+  table CreditScore, LoanTerm
+  | in [740, 850], in [12, 60] => 3.1
+  | in [700, 739], in [24, 60] => 4.1
+  | in [670, 699], in [36, 60] => 5.1
+  | in [659, 669], in [48, 60] => 6.1
+
+rule adjust InterestRateAdjustment "Rate Adjustment - credit score between 700 - 850 and LTV >= 80% and <= 90%" =>
+  CreditScore in [700, 850] and LoanToValuePercent in [80, 90]
+  ? 2.0
+  : 0
+
+rule deny "The applicant's credit score is less than or equal to 739, and the loan term equals 60 months. The annual unsecured debt ratio must be less than 35%" =>
+  CreditScore <= 739 and LoanTerm == 60 and TotalUnsecuredDebt > 35
+
+rule deny "There are less than 2 open tradelines or the oldest tradeline is less than or equal to 24 months old" =>
+  LiabilityCount < 2 and OldestLiabilityInMonths <= 24
+```
+
+## 10 Additional Information
 For more detailed descriptions of the various language constructs, the supporting document `Banking Meta Language Specification` can be viewed. For any other questions you can reach out to Affordit directly.
